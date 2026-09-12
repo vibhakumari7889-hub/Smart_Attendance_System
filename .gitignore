@@ -1,0 +1,12 @@
+.venv/
+__pycache__/
+*.pyc
+
+database/*.db
+
+dataset/students/*
+
+models/*.yml
+models/*.json
+
+reports/*.csv
