@@ -1,7 +1,6 @@
 import cv2
 import json
 import numpy as np
-import time
 from pathlib import Path
 
 from src.database import get_all_students
