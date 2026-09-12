@@ -169,15 +169,24 @@ def show_success_screen(
         0
     )
 
-    # Big check mark
-    cv2.putText(
+    # Draw a large green check mark
+    center_x = width // 2
+    center_y = height // 2 - 70
+
+    cv2.line(
         confirmation_frame,
-        "✓",
-        (width // 2 - 50, height // 2 - 50),
-        cv2.FONT_HERSHEY_SIMPLEX,
-        3,
+        (center_x - 70, center_y),
+        (center_x - 20, center_y + 50),
         (0, 255, 0),
-        6
+        10
+    )
+
+    cv2.line(
+        confirmation_frame,
+        (center_x - 20, center_y + 50),
+        (center_x + 80, center_y - 70),
+        (0, 255, 0),
+        10
     )
 
     if already_marked:
@@ -191,7 +200,7 @@ def show_success_screen(
     text_size = cv2.getTextSize(
         message,
         cv2.FONT_HERSHEY_SIMPLEX,
-        1.0,
+        0.9,
         2
     )[0]
 
@@ -200,9 +209,9 @@ def show_success_screen(
     cv2.putText(
         confirmation_frame,
         message,
-        (text_x, height // 2 + 60),
+        (text_x, center_y + 130),
         cv2.FONT_HERSHEY_SIMPLEX,
-        1.0,
+        0.9,
         (0, 255, 0),
         2
     )
@@ -221,7 +230,7 @@ def show_success_screen(
     cv2.putText(
         confirmation_frame,
         student_text,
-        (student_x, height // 2 + 110),
+        (student_x, center_y + 175),
         cv2.FONT_HERSHEY_SIMPLEX,
         0.8,
         (255, 255, 255),
@@ -243,6 +252,7 @@ def show_success_screen(
         confirmation_frame
     )
 
+    # Keep confirmation screen visible for 2 seconds
     cv2.waitKey(2000)
 
 
@@ -342,13 +352,13 @@ def recognize_faces():
                     student_id = student["student_id"]
                     name = student["name"]
 
-                    # Try to mark attendance
+                    # Mark attendance
                     success = record_attendance(
                         student_id,
                         name
                     )
 
-                    # Show confirmation
+                    # Show confirmation screen
                     show_success_screen(
                         window_name,
                         frame,
@@ -363,8 +373,7 @@ def recognize_faces():
 
                 else:
 
-                    display_text = "Unknown"
-
+                    # Unknown face
                     cv2.rectangle(
                         frame,
                         (x, y),
@@ -375,7 +384,7 @@ def recognize_faces():
 
                     cv2.putText(
                         frame,
-                        display_text,
+                        "Unknown",
                         (x, y - 10),
                         cv2.FONT_HERSHEY_SIMPLEX,
                         0.7,
