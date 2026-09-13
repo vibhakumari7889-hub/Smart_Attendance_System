@@ -273,41 +273,7 @@ Smart_Attendance_System/
     ├── attendance.py
     ├── reports.py
     └── __init__.py
-Note: Face datasets, SQLite database files, trained models, and generated reports are stored locally and excluded from GitHub using .gitignore.
 
-How It Works Register a student using their Student ID and Name. The webcam captures face samples. Face samples are stored locally for model training. Train the LBPH face recognition model. Start the attendance system. The system detects and recognizes registered students. Attendance is automatically recorded in SQLite. Duplicate attendance for the same student on the same day is prevented. Attendance records can be viewed or exported as a CSV report. Installation
-
-Clone the Repository git clone https://github.com/vibhakumari7889-hub/Smart_Attendance_System.git cd Smart_Attendance_System
-Create a Virtual Environment python -m venv .venv
-Activate the Virtual Environment
-On Windows PowerShell:
-
-.venv\Scripts\Activate.ps1 4. Install Dependencies pip install -r requirements.txt Run the Application Streamlit Web App streamlit run app.py Command-Line Application python main.py Main Menu
-
-Register Student
-Train Face Recognition Model
-Start Attendance
-View Attendance Report
-Export Attendance to CSV
-View Registered Students
-Exit Database
-The system uses SQLite to store:
-
-Student information Attendance records Attendance date and time Attendance status Attendance Reports
-
-Attendance records can be exported as:
-
-reports/attendance_report.csv Privacy Note
-
-Face images and generated biometric-related data are stored locally. These files are intentionally excluded from the public GitHub repository using .gitignore.
-
-Future Improvements Graphical User Interface (GUI) Admin authentication Attendance percentage calculation Monthly attendance statistics Email notifications Cloud database integration Web-based attendance dashboard Author
-
-Vibha Kumari
-
-B.Tech Information Technology Student
-
-Built using Python, OpenCV, SQLite, and Streamlit.
 
 About
 
