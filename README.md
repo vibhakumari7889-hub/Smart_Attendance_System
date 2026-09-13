@@ -26,3 +26,5 @@ Smart_Attendance_System/
     ├── attendance.py
     ├── reports.py
     └── __init__.py
+```
+
